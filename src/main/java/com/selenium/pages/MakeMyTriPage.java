@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.LoadableComponent;
+import org.testng.Assert;
 
 import static junit.framework.Assert.assertTrue;
 
@@ -51,6 +52,9 @@ public class MakeMyTriPage extends LoadableComponent<MakeMyTriPage> {
 
 	@Override
 	protected void isLoaded() throws Error {
+        if (!isPageLoaded) {
+            Assert.fail();
+        }
 		String url = driver.getCurrentUrl();
 		assertTrue("Not on the issue entry page: " + url, url.endsWith("makemytrip.com"));
 	}
