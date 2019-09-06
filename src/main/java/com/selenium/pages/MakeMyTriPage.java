@@ -1,4 +1,4 @@
-package com.selenium.test.pages;
+package com.selenium.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.LoadableComponent;
 
 import static junit.framework.Assert.assertTrue;
 
-public class SpiceJetLoginPage extends LoadableComponent<SpiceJetLoginPage> {
+public class MakeMyTriPage extends LoadableComponent<MakeMyTriPage> {
 
 	private final WebDriver driver;
 
@@ -19,15 +19,25 @@ public class SpiceJetLoginPage extends LoadableComponent<SpiceJetLoginPage> {
 	@FindBy(css = "input[value='RoundTrip']")
 	WebElement roundTrip;
 	
-	@FindBy(id = "ctl00_mainContent_ddl_originStation1_CTXT")
-	WebElement departureCity;
+	@FindBy(id = "fromCity")
+	WebElement fromCity;
+	
+	@FindBy(css = ".fsw_inputBox.searchCity.inactiveWidget")
+	WebElement fromSection;
+	
+	@FindBy(css = "input.react-autosuggest__input.react-autosuggest__input--open")
+	WebElement txbFrom;
+	
+	@FindBy(css = "div.fsw_inputBox.searchToCity.inactiveWidget.activeWidget input.react-autosuggest__input.react-autosuggest__input--open")
+	WebElement txbToCity;
+	
 
 	@FindBy(id = "ctl00_mainContent_ddl_destinationStation1_CTXT")
 	WebElement arrivalCity;
 	
 	private boolean isPageLoaded;
 
-	public SpiceJetLoginPage(WebDriver driver) {
+	public MakeMyTriPage(WebDriver driver) {
 		this.driver = driver;
 
 		// This call sets the WebElement fields.
@@ -42,7 +52,7 @@ public class SpiceJetLoginPage extends LoadableComponent<SpiceJetLoginPage> {
 	@Override
 	protected void isLoaded() throws Error {
 		String url = driver.getCurrentUrl();
-		assertTrue("Not on the issue entry page: " + url, url.endsWith("spicejet.com"));
+		assertTrue("Not on the issue entry page: " + url, url.endsWith("makemytrip.com"));
 	}
 
 	public void selectTravelOptionsOneWay() {
@@ -53,17 +63,23 @@ public class SpiceJetLoginPage extends LoadableComponent<SpiceJetLoginPage> {
 		roundTrip.click();
 	}
 	
+	public void clickfromSection() {
+		fromSection.click();
+	}
 	public void enterDepartureCity(String depCity) {
-		departureCity.click();
 		System.out.println("Entering depCity");
-		departureCity.sendKeys(depCity);
+		txbFrom.sendKeys(depCity);
 		System.out.println("Entered depCity");
 	}
 
 	public void enterArrivalCity(String arrCity) {
-		arrivalCity.click();
+		txbToCity.click();
 		System.out.println("Entering arrCity");
-		arrivalCity.sendKeys(arrCity);
+		txbToCity.sendKeys(arrCity);
 		System.out.println("Entered arrCity");
+	}
+	
+	public void selectFromCity() {
+		
 	}
 }
