@@ -8,8 +8,6 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.LoadableComponent;
 import org.testng.Assert;
 
-import static junit.framework.Assert.assertTrue;
-
 public class SpiceJetLoginPage extends LoadableComponent<SpiceJetLoginPage> {
 
 	private final WebDriver driver;
@@ -46,7 +44,7 @@ public class SpiceJetLoginPage extends LoadableComponent<SpiceJetLoginPage> {
             Assert.fail();
         }
 		String url = driver.getCurrentUrl();
-		assertTrue("Not on the issue entry page: " + url, url.endsWith("spicejet.com"));
+		Assert.assertTrue(url.endsWith("spicejet.com"));
 	}
 
 	public void selectTravelOptionsOneWay() {
