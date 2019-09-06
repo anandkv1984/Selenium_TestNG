@@ -9,7 +9,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.selenium.framework.MyDriver;
-import com.selenium.testSpiceJet.pages.SpiceJetLoginPage;
+import com.selenium.test.pages.SpiceJetLoginPage;
 
 public class SpiceJetLoginTest {
 

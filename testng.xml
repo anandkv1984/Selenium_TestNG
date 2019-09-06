@@ -3,7 +3,7 @@
 <suite name="Suite" parallel="false">
   <test name="Test">
     <classes>
-      <class name="com.selenium.testspicejet.test.SpiceJetLoginTest"/>
+      <class name="com.selenium.testspicejet.test.MakeMyTripTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

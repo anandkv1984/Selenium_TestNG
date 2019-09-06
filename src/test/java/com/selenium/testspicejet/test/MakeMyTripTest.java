@@ -11,8 +11,8 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.selenium.framework.MyDriver;
-import com.selenium.testSpiceJet.pages.MakeMyTrip;
-import com.selenium.testSpiceJet.pages.SpiceJetLoginPage;
+import com.selenium.test.pages.MakeMyTriPage;
+import com.selenium.test.pages.SpiceJetLoginPage;
 
 public class MakeMyTripTest {
 
@@ -31,7 +31,7 @@ public class MakeMyTripTest {
 			driver.manage().window().maximize();
 			System.out.println(driver.getTitle());
 
-			MakeMyTrip mmt = new MakeMyTrip(driver);
+			MakeMyTriPage mmt = new MakeMyTriPage(driver);
 
 			//spicejet.enterDepartureCity("MUM");
 			WebDriverWait wait = new WebDriverWait(driver, 10);// 1 minute 
