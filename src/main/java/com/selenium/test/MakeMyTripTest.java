@@ -3,7 +3,9 @@ package com.selenium.test;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestContext;
@@ -60,6 +62,22 @@ public class MakeMyTripTest {
 			driver.quit();
 		}
 
+	}
+	
+	@Test
+	public void enterTextWithJavaScript(WebDriver driver) throws InterruptedException {
+		
+		System.setProperty("webdriver.chrome.driver", "D:\\automation_practice\\Grid\\chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.get("https://youtube.com");
+		driver.manage().window().maximize();
+		
+		JavascriptExecutor executor = (JavascriptExecutor)driver;
+
+		executor.executeScript("document.getElementById('search').value='new value1';");
+		
+		Thread.sleep(5000);
+		executor.executeScript("document.getElementById(\"search\").value='new value2';");
 	}
 
 }

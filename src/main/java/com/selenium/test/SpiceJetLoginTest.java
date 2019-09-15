@@ -2,6 +2,8 @@ package com.selenium.test;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestContext;
@@ -16,7 +18,7 @@ public class SpiceJetLoginTest {
 	private String webSite = "https://book.spicejet.com/";
 	private String browser = "firefox";
 
-	@Test
+	//@Test
 	public void test1() {
 
 		final WebDriver driver = MyDriver.get(browser);
@@ -52,6 +54,18 @@ public class SpiceJetLoginTest {
 			driver.quit();
 		}
 
+	}
+	
+	@Test
+	public void test18() {
+		System.setProperty("webdriver.chrome.driver", "D:\\automation_practice\\Grid\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://vimeo.com/upload");
+		driver.manage().window().maximize();
+
+		WebElement e = driver.findElement(By.xpath("//*[@class='_18GxQ K0m8D sc-bbmXgH ghzdNK']"));
+		System.out.println(e.getText());
+		driver.quit();
 	}
 
 }

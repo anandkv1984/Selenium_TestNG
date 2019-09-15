@@ -1,11 +1,18 @@
 package com.selenium.pages;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchWindowException;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.LoadableComponent;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 public class MakeMyTriPage extends LoadableComponent<MakeMyTriPage> {
@@ -68,9 +75,14 @@ public class MakeMyTriPage extends LoadableComponent<MakeMyTriPage> {
 	public void clickfromSection() {
 		fromSection.click();
 	}
+	
+	@SuppressWarnings("deprecation")
 	public void enterDepartureCity(String depCity) {
 		System.out.println("Entering depCity");
 		txbFrom.sendKeys(depCity);
+		
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		//fromSection = new WebDriverWait(driver, 10).until(ExpectedCondition.elementToBeClickable(fromSection));
 		System.out.println("Entered depCity");
 	}
 

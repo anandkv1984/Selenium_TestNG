@@ -3,7 +3,12 @@
 <suite name="Suite" parallel="false">
   <test name="Test">
     <classes>
-      <class name="com.selenium.test.MakeMyTripTest"/>
+      <class name="com.selenium.test.JavaScriptExecutorPactice">
+      <methods>
+      <include name = "scrollIntoViewJS"></include>
+      </methods>
+      
+      </class>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
